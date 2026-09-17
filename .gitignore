@@ -42,7 +42,7 @@ Thumbs.db
 
 # Logs
 *.log
-logs/
+logs/*
 
 # Local data
 data/raw/
@@ -59,3 +59,6 @@ data/processed/
 # Temporary files
 *.tmp
 *.temp
+
+# Keep canonical logs directory while ignoring its contents
+!logs/.gitkeep
