@@ -216,7 +216,7 @@ Prepare the execution platform.
 ### Activities
 
 - Containerization
-- Environment configuration
+- Environment configuration (declarative configuration structure, environment-specific YAML templates, and environment-variable contract; runtime Configuration Manager is implemented in Phase 2)
 - Database provisioning
 - Object storage
 - Vector database

@@ -2633,9 +2633,13 @@ configs/
 
 ├── testing/
 
+├── integration/
+
 ├── staging/
 
 ├── production/
+
+├── research/
 
 ├── schemas/
 
@@ -2684,13 +2688,15 @@ development/
 └── features.yaml
 ```
 
-The same structure is maintained for:
+The same structure is maintained for all environment directories:
 
 - testing
+- integration
 - staging
 - production
+- research
 
-Only values differ.
+Only values differ. The `research/` directory represents the Research Sandbox experimental environment, which is separate from the standard promotion path.
 
 ---
 

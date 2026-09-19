@@ -7327,14 +7327,23 @@ Every deployment exposes health, metrics, logs, and traces.
 
 PROMETHEUS officially supports the following environments.
 
-| Environment | Purpose |
-|------------|----------|
-| Development | Local engineering |
-| Local Testing | Functional validation |
-| Integration | Cross-service verification |
-| Staging | Production simulation |
-| Production | Live deployment |
-| Research Sandbox | Experimental features |
+**Standard promotion path environments**
+
+| Environment | Config Directory | Purpose |
+|------------|-----------------|---------|
+| Development | `development/` | Local engineering |
+| Local Testing | `testing/` | Functional validation |
+| Integration | `integration/` | Cross-service verification |
+| Staging | `staging/` | Production simulation |
+| Production | `production/` | Live deployment |
+
+**Experimental environment (separate from promotion path)**
+
+| Environment | Config Directory | Purpose |
+|------------|-----------------|---------|
+| Research Sandbox | `research/` | Experimental features |
+
+The Research Sandbox is not part of the standard promotion path and is not subject to promotion gating.
 
 ---
 
@@ -7345,11 +7354,11 @@ Development
 
 ↓
 
-Integration
+Testing
 
 ↓
 
-Testing
+Integration
 
 ↓
 
@@ -7361,6 +7370,8 @@ Production
 ```
 
 Deployment promotion shall occur only after validation gates succeed.
+
+The Research Sandbox environment operates independently and does not participate in this promotion sequence.
 
 ---
 
@@ -8926,7 +8937,11 @@ Configuration is separated from code.
 ```
 configs/
 
+defaults/
+
 development/
+
+testing/
 
 integration/
 
@@ -8935,7 +8950,25 @@ staging/
 production/
 
 research/
+
+schemas/
+
+feature_flags/
+
+templates/
+
+ai/
+
+infrastructure/
+
+observability/
+
+security/
+
+validation/
 ```
+
+Environment directories (`development/`, `testing/`, `integration/`, `staging/`, `production/`, `research/`) hold environment-specific configuration templates. Support directories (`defaults/`, `schemas/`, `feature_flags/`, etc.) contain shared baselines and specialised configuration assets. The full specification for each directory is defined in `06_Project_File_Structure.md` Part VIII.
 
 Configuration shall never be hardcoded.
 
