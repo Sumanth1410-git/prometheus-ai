@@ -1,0 +1,6 @@
+metadata:
+  version: "<MAJOR.MINOR.PATCH>"
+  owner: "<stable logical owner>"
+  last_updated: "<YYYY-MM-DD>"
+  compatible_application_version: "<application version or compatible version range>"
+  migration_notes: "<migration information or empty string>"
