@@ -3044,7 +3044,35 @@ Breaking configuration changes require migration documentation.
 
 ---
 
-# 18. Configuration Documentation
+# 18. Configuration Metadata Convention
+
+Every version-controlled configuration YAML asset uses a top-level `metadata` mapping.
+
+The canonical metadata fields are:
+
+```yaml
+metadata:
+  version: "MAJOR.MINOR.PATCH"
+  owner: "<stable logical owner>"
+  last_updated: "YYYY-MM-DD"
+  compatible_application_version: "<application version or compatible version range>"
+  migration_notes: "<migration information or empty string>"
+```
+
+Field definitions:
+
+- `version`: Semantic version of the configuration asset.
+- `owner`: Stable logical ownership identifier for the configuration asset.
+- `last_updated`: Date on which the configuration asset was last modified, using ISO 8601 date format.
+- `compatible_application_version`: Application version or compatible application version range for which the configuration is supported.
+- `migration_notes`: Notes required to migrate from previous configuration versions. An empty string is permitted when no migration is required.
+
+These metadata fields are governance metadata and are distinct from the configuration values consumed by the application.
+
+The exact owner identifiers and application compatibility values are defined as configuration ownership and application release conventions are established.
+
+---
+# 19. Configuration Documentation
 
 Every configuration group includes:
 
@@ -3059,7 +3087,7 @@ Documentation is maintained alongside configuration files.
 
 ---
 
-# 19. Runtime Configuration Management
+# 20. Runtime Configuration Management
 
 Runtime configuration supports:
 
@@ -3072,7 +3100,7 @@ Changes requiring restart are explicitly documented.
 
 ---
 
-# 20. Configuration Security
+# 21. Configuration Security
 
 Security controls include:
 
@@ -3087,7 +3115,7 @@ Configuration changes are fully traceable.
 
 ---
 
-# 21. Configuration Testing
+# 22. Configuration Testing
 
 Configuration validation includes:
 
@@ -3101,7 +3129,7 @@ Configuration is tested as part of CI/CD.
 
 ---
 
-# 22. Configuration Governance
+# 23. Configuration Governance
 
 Every configuration file has:
 
@@ -3115,7 +3143,7 @@ Unauthorized configuration changes are prohibited.
 
 ---
 
-# 23. Summary
+# 24. Summary
 
 The Configuration & Environment Management architecture provides a centralized, validated, secure, and environment-independent configuration system for PROMETHEUS.
 
