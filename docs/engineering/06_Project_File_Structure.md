@@ -3008,7 +3008,20 @@ Security configuration is isolated from application logic.
 
 # 16. Configuration Schemas
 
-Every configuration file has a corresponding schema.
+Configuration files are validated against the applicable umbrella schema for their configuration domain.
+
+The six schemas define the structural contract for their respective configuration domains:
+
+| Schema | Applies to |
+|---|---|
+| `application.schema.yaml` | Application and platform configuration |
+| `ai.schema.yaml` | AI configuration and AI-related settings |
+| `infrastructure.schema.yaml` | Infrastructure, database, cache, storage, networking, and deployment configuration |
+| `security.schema.yaml` | Security configuration |
+| `observability.schema.yaml` | Logging, metrics, monitoring, tracing, alerts, dashboards, and health checks |
+| `feature_flags.schema.yaml` | Feature flag configuration |
+
+An individual configuration file does not require a one-to-one schema file. It is validated against the umbrella schema corresponding to its configuration domain.
 
 ```
 schemas/
